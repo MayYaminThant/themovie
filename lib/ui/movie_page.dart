@@ -163,13 +163,13 @@ class _MyMoviesState extends State<MyMovies> {
     ];
     return Expanded(
       child: ListView.separated(
-        separatorBuilder: (BuildContext buildercontext, int count) {
+        separatorBuilder: (BuildContext builderContext, int count) {
           return SizedBox(
             height: 15,
           );
         },
         itemCount: list.length,
-        itemBuilder: (BuildContext buildercontext, int count) {
+        itemBuilder: (BuildContext builderContext, int count) {
           return MovieRecommendationCart(
             map: list[count],
           );

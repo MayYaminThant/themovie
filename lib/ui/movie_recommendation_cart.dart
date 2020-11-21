@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:themovie/ui/movie_detail.dart';
 
 class MovieRecommendationCart extends StatelessWidget {
   final colorWhite = Colors.white;
@@ -10,18 +11,33 @@ class MovieRecommendationCart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return _myMovieRecommendationCart;
+    return _myMovieRecommendationCart(context);
   }
 
-  Widget get _myMovieRecommendationCart {
+  Widget _myMovieRecommendationCart(context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Container(
-        child: Row(
-          children: [
-            _movieCartImage,
-            _movieCartDescription,
-          ],
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => MyMovieDetail(
+                  map: map,
+                ),
+              ),
+            );
+          },
+          child: Container(
+            child: Row(
+              children: [
+                _movieCartImage,
+                _movieCartDescription,
+              ],
+            ),
+          ),
         ),
       ),
     );
